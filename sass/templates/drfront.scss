@@ -1,0 +1,203 @@
+
+#drfront p, #drfront h1, #drfront h2, #drfront h3, #drfront h4, #drfront h5, #drfront h6, #drfront ul { line-height: normal }
+
+/* Container for the entire front */
+#drfront {
+     width: 58.125rem;
+     background: #fff;
+     font-family: Arial,Helvetica,sans-serif;
+     font-weight: bold;
+     word-spacing: 1px;
+     margin: 0.3125rem;
+     padding: 0;
+     
+     /* Container for all the articles */
+     .articles {
+        background: #fff
+     }
+     /* Set kerning to be the same in all browsers. NB: will cause a bug on Windows 7 in IE 10-11
+      * see: https://connect.microsoft.com/IE/feedbackdetail/view/831964
+      */
+    .df-article {
+      -webkit-font-feature-settings: "kern" 1;
+      -moz-font-feature-settings: "kern" 1;
+      -moz-font-feature-settings: "kern=1";
+      -o-font-feature-settings: "kern" 1;
+      font-kerning: normal;
+    }
+     /* Container for the article */
+    .df-article { 
+        margin: 0 0.3125rem; 
+        padding: 0.5em 0; 
+        overflow: hidden; 
+        position: relative;
+        display: inline; /* IE Fix (doubled-margin bug) */
+        .df-article-content {
+            padding: 0px;
+        }
+    }
+    /* The different article sizes */
+    .df-article.df-width-100 { width: 57.5rem }
+    .df-article.df-width-50 { width: 28.125rem }
+    .df-article.df-width-66 { width: 38.125rem }
+    .df-article.df-width-25 { width: 13.875rem }
+    .df-article.df-width-33 { width: 18.75rem }
+    .df-article.df-width-16 { width: 9.0625rem }
+    
+    /* Article title */
+    h3 { display: block } /* IE Fix */
+    /* Article text */
+    p { margin: 0; padding: 1px 0 }
+    /* Article lists */
+    ul {
+        list-style-position: inside;
+        li { list-style-type: square; }
+    }
+    
+    /* Default links */
+    a:link, #drfront a:visited { text-decoration: none; color: #900 }
+    a:hover { text-decoration: underline; color: #000 }
+    a:active { text-decoration: underline; color: #000 }
+    h3 a:link { text-decoration: none; color: #000 }
+    h3 a:hover { text-decoration: underline; color: #000 }
+    a.external-link:link { text-decoration: none; color: #999; font-weight: normal }
+    a.external-link:hover { text-decoration: underline; color: #000 }
+    /* Images */
+    img { border: none; display: inline; vertical-align: middle }
+    img.df-article-img { 
+        vertical-align: baseline;
+        display: block
+    }
+    img.df-left, #drfront img.df-right { display: inline } /* IE Fix (doubled-margin bug) */
+    .img-brd-0 img.df-article-img { border: none }
+    .df-img-container { margin-bottom: 0px }
+    
+    /* Article content */
+    .df-article-content .df-left { margin-right: 0.375rem }
+    .df-article-content .df-right { margin-left: 0.375rem }
+    
+    /* Editor Styles */
+    .non-bold { font-weight: normal }
+    .subheading { font-weight: normal; color: #000 }
+    .subheading a:link { color: #000 }
+    /* Article clearer */
+    .clearer { clear: both }
+    /* Positions for the article */
+    .df-left { float: left }
+    .df-right { float: right }
+    .no-float { float: none }
+}
+
+/**********************************************
+ * Responsive styling                         *
+ *********************************************/
+
+.drfront.df-published {
+    margin: 0 auto;
+    .df-articles {
+        font-size:16px;
+    }
+    .df-article .df-article-content {
+        .df-vertical-align-middle.df-has-image {
+            height: 50%;
+        }
+        .df-vertical-align-middle.df-has-no-image {
+            height: 100%;
+        }
+        .df-vertical-align-middle {
+            display: table;
+            width: 100%;
+            
+            .middle {
+                display: table-cell;
+                vertical-align: middle;
+                .inner {
+                    margin-left: auto;
+                    margin-right: auto;
+                    h3, h4, p {
+                        line-height: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width:931px) {
+        width: 931px;
+        .df-article.df-width-100 { width: 57.5rem }
+        .df-article.df-width-50 { width: 28.4375rem }
+        .df-article.df-width-66 { width: 38.125rem }
+        .df-article.df-width-25 { width: 13.875rem }
+        .df-article.df-width-33 { width: 18.75rem }
+        .df-article.df-width-16 { width: 9.0625rem }
+        .df-articles .df-article.df-width-100 .df-article-content .df-img-container.df-left {
+            margin-right: 0.625rem;
+        }
+    }
+    
+    @media (max-width:930px) {
+        width: 100vw;
+        .df-article.df-width-100 {
+            width: 98.924vw;
+            .df-article-content .df-img-container.df-left {
+                margin-right: 1.075vw;
+            }
+        }
+        .df-article.df-width-50 { width: 48.699vw; }
+        .df-article.df-width-66 { width: 65.591vw; }
+        .df-article.df-width-25 { width: 23.870vw; }
+        .df-article.df-width-33 { width: 32.258vw; }
+        .df-article.df-width-16 { width: 15.591vw; }
+        .df-articles { font-size:1.72vw; }
+        .df-article {
+            margin: 0 0.537vw;
+            @for $i from 1 through 256 {
+                .df-fs-#{$i} {
+                    font-size: #{($i/9.5)}vw !important;
+                }
+                .df-ls-#{$i} {
+                    letter-spacing: #{($i/9.5)}vw !important;
+                }
+                
+                .df-ls--#{$i} {
+                    letter-spacing: #{-($i/9.5)}vw !important;
+                }
+                
+                .df-lh-#{$i} {
+                    line-height: #{($i/9.5)}vw !important;
+                }
+                
+                .df-ws-#{$i} {
+                    word-spacing: #{($i/9.5)}vw !important;
+                }
+
+                .df-ws--#{$i} {
+                    word-spacing: #{-($i/9.5)}vw !important;
+                }
+            }           
+        }
+    }
+}
+
+.drfront.df-published .df-articles .df-article .df-article-content {
+  height:100%;
+  overflow:hidden;
+}
+
+.drfront.df-published .df-articles .df-article .df-article-content .df-img-container .df-img-container-inner img {
+  height:auto;
+}
+
+.drfront.df-published .df-articles .df-article.df-width-100 .df-article-content .df-img-container .df-img-container-inner img,
+.drfront.df-published .df-articles .df-article.df-width-100 .df-article-content .df-img-container .df-img-container-inner img {
+  max-height:auto;
+}
+
+/**********************************************
+ * Article Skins                              *
+ *********************************************/
+
+
+/**********************************************
+ * Container Skins                            *
+ *********************************************/
