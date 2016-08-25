@@ -332,7 +332,6 @@ HTTP/1.1 201 Created
 | orderBy			| String			| **optional** <p>Order by field</p>							|
 | order			| String			| **optional** <p>What order to use in conjunction with orderBy parameter. Valid values asc,desc</p>							|
 | limit			| String			| **optional** <p>Limit the result. Either a number for how many records to show or csv for setting offset. Same as SQL</p>							|
-| admin			| Boolean			| **optional** <p>If this is set and the user has admin rights it will search through all user records.</p>							|
 
 ### Examples
 
@@ -607,7 +606,6 @@ HTTP/1.1 201 Created
 | orderBy			| String			| **optional** <p>Order by field</p>							|
 | order			| String			| **optional** <p>What order to use in conjunction with orderBy parameter. Valid values asc,desc</p>							|
 | limit			| String			| **optional** <p>Limit the result. Either a number for how many records to show or csv for setting offset. Same as SQL</p>							|
-| admin			| Boolean			| **optional** <p>If this is set and the user has admin rights it will search through all user records.</p>							|
 
 ### Examples
 
@@ -641,90 +639,3 @@ HTTP/1.1 200 OK
 }]
 
 ```
-# Statistics
-
-## Get Statistics
-
-<p>Get storage statistics.</p><p>Note! This endpoint requires that the accessToken belongs to an Admin user.</p>
-
-	GET /stats
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| fromDate			| String			| **optional** <p>filter on created. Format: YYYY-MM-DD</p>							|
-| toDate			| String			| **optional** <p>filter on created. Format: YYYY-MM-DD</p>							|
-
-### Examples
-
-CURL example:
-
-```
-CURL example:
-curl -i -H 'Authorization: bearer foobar' http://localhost:3000/stats
-
-```
-
-### Success Response
-
-Success-Response (example):
-
-```
-Success-Response (example):
-HTTP/1.1 200 OK
-{
-"users": {
-	"martinj": {
-		"imageCount": 78,
-		"imageBytes": 0,
-		"fileCount": 125,
-		"fileBytes": 170607
-	}
-}
-}
-
-```
-# User
-
-## Create user
-
-<p>Create user</p><p>Note! This endpoint requires that the accessToken belongs to an Admin user.</p>
-
-	POST /users
-
-
-### Parameters
-
-| Name    | Type      | Description                          |
-|---------|-----------|--------------------------------------|
-| name			| String			|  <p>The name of the new user</p>							|
-
-### Examples
-
-CURL example:
-
-```
-CURL example:
-curl -i -X POST -H 'Authorization: bearer foobar' -H 'Content-Type: application/json' \
--d '{ "name": "foobar" }' http://localhost:3000/users
-
-```
-
-### Success Response
-
-Success-Response (example):
-
-```
-Success-Response (example):
-HTTP/1.1 200 OK
-{
-"id": 1,
-"name": "foobar",
-"secret": "sdgsdgsdgf",
-"transform_secret": "dfsdfsdfsdf",
-}
-
-```
-
