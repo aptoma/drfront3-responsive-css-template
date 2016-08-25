@@ -13,8 +13,10 @@ General styling to make fronts in DrFront 3 into responsive fronts
  compass compile
 ```
 
-NB: Images in DrFront 3 is not responsive! You have to change the image dimentions and remove the width and height attributes on the images meant for mobile.
+Images in DrFront 3 is not responsive! You have to change the image dimentions and remove the width and height attributes on the images meant for mobile.
 
 To do this, you can use our image transformation services to transform your desktop images into mobile. See: [Aptoma Smooth Storage documentation](documentation/ass.md)
 
 If you are interested in node development we also have a [Aptoma Smooth Storage client](https://github.com/aptoma/ass-client-js)
+
+NB: Please contact us in good time before deploying your solution into production to avoid any surprises.
