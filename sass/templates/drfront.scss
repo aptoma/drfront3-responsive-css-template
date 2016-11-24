@@ -153,28 +153,28 @@
             margin: 0 0.537vw;
             @for $i from 1 through 256 {
                 .df-fs-#{$i} {
-                    font-size: #{($i/9.5)}vw !important;
+                    font-size: #{($i/9.295)}vw !important;
                 }
                 .df-ls-#{$i} {
-                    letter-spacing: #{($i/9.5)}vw !important;
+                    letter-spacing: #{($i/9.295)}vw !important;
                 }
                 
                 .df-ls--#{$i} {
-                    letter-spacing: #{-($i/9.5)}vw !important;
+                    letter-spacing: #{-($i/9.295)}vw !important;
                 }
                 
                 .df-lh-#{$i} {
-                    line-height: #{($i/9.5)}vw !important;
+                    line-height: #{($i/9.295)}vw !important;
                 }
                 
                 .df-ws-#{$i} {
-                    word-spacing: #{($i/9.5)}vw !important;
+                    word-spacing: #{($i/9.295)}vw !important;
                 }
 
                 .df-ws--#{$i} {
-                    word-spacing: #{-($i/9.5)}vw !important;
+                    word-spacing: #{-($i/9.295)}vw !important;
                 }
-            }           
+            }          
         }
     }
 }
